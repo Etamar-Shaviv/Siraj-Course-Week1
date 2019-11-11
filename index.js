@@ -6,12 +6,12 @@ const classifier = knnClassifier.create();
 async function setupWebcam() {
   return new Promise((resolve, reject) => {
     const navigatorAny = navigator;
-    navigator.mediaDevices.getUserMedia = navigator.mediaDevices.getUserMedia ||
+    navigator.getUserMedia = navigator.getUserMedia ||
         navigatorAny.webkitGetUserMedia || navigatorAny.mozGetUserMedia ||
         navigatorAny.msGetUserMedia;
-    if (navigator.mediaDevices.getUserMedia)
+    if (navigator.getUserMedia)
     {
-      navigator.mediaDevices.getUserMedia({video: true},      
+      navigator.getUserMedia({video: true},      
         stream => {
           webcamElement.srcObject = stream;
           webcamElement.addEventListener('loadeddata',  () => resolve(), false);
