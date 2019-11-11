@@ -6,11 +6,25 @@ const classifier = knnClassifier.create();
 async function setupWebcam() {
   return new Promise((resolve, reject) => {
     const navigatorAny = navigator;
-    navigator.MediaDevices.getUserMedia = navigator.MediaDevices.getUserMedia ||
+    navigator.mediaDevices.getUserMedia = navigator.mediaDevices.getUserMedia ||
         navigatorAny.webkitGetUserMedia || navigatorAny.mozGetUserMedia ||
         navigatorAny.msGetUserMedia;
-    if (navigator.MediaDevices.getUserMedia) {
-      navigator.MediaDevices.getUserMedia({video: true, facingMode: {exact: 'user'} },
+    if (navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia({
+  video: {
+    width: { 
+      min: 1280,
+      ideal: 1280,
+      max: 2560,
+    },
+    height: {
+      min: 720,
+      ideal: 720,
+      max: 1440
+    },
+    facingMode: 'environment'
+  }
+},
         stream => {
           webcamElement.srcObject = stream;
           webcamElement.addEventListener('loadeddata',  () => resolve(), false);
