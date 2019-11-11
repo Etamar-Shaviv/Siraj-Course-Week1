@@ -22,7 +22,7 @@ async function setupWebcam() {
       ideal: 720,
       max: 1440
     },
-    facingMode: 'environment'
+    facingMode: 'user'
   }
 },
         stream => {
