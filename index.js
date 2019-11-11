@@ -11,7 +11,7 @@ async function setupWebcam() {
         navigatorAny.msGetUserMedia;
     if (navigator.mediaDevices.getUserMedia)
     {
-      navigator.mediaDevices.getUserMedia({video: true,facingMode: 'user'},      
+      navigator.mediaDevices.getUserMedia({video: true},      
         stream => {
           webcamElement.srcObject = stream;
           webcamElement.addEventListener('loadeddata',  () => resolve(), false);
