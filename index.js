@@ -25,14 +25,17 @@ async function setupWebcam() {
 }
 
 async function app() {
+  document.getElementById('console').innerText = `Loading mobilenet..';
   console.log('Loading mobilenet..');
-
+  
   // Load the model.
   net = await mobilenet.load();
   console.log('Sucessfully loaded model');
-
+  document.getElementById('console').innerText = 'Sucessfully loaded model';
+  
+  document.getElementById('console').innerText = `setupCam..';
   await setupWebcam();
-
+  document.getElementById('console').innerText = `setupCam Done';
   // Reads an image from the webcam and associates it with a specific class
   // index.
   const addExample = classId => {
