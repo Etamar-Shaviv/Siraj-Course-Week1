@@ -4,6 +4,7 @@ const webcamElement = document.getElementById('webcam');
 const classifier = knnClassifier.create();
 
 async function setupWebcam() {
+  alert ('start setup webcam');
   return new Promise((resolve, reject) => {
     const navigatorAny = navigator;
     navigator.getUserMedia = navigator.getUserMedia ||
