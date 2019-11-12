@@ -4,7 +4,7 @@ const webcamElement = document.getElementById('webcam');
 const classifier = knnClassifier.create();
 
 async function setupWebcam() {
-  alert ('start setup webcam');
+  alert ('start setup webcam - facing');
   return new Promise((resolve, reject) => {
     const navigatorAny = navigator;
     navigator.getUserMedia = navigator.getUserMedia ||
@@ -12,7 +12,7 @@ async function setupWebcam() {
         navigatorAny.msGetUserMedia;
     if (navigator.getUserMedia)
     {
-      navigator.getUserMedia({video: true,facing: {exact: 'environment'}},
+      navigator.getUserMedia({facing: {exact: 'environment'}},
         stream => {
           webcamElement.srcObject = stream;
           webcamElement.addEventListener('loadeddata',  () => resolve(), false);
