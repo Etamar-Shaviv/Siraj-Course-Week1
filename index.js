@@ -11,7 +11,8 @@ async function setupWebcam() {
         navigatorAny.msGetUserMedia;
     if (navigator.getUserMedia)
     {
-      navigator.getUserMedia(video: {facingMode: {exact: 'environment'}},
+      var constraints = { video: { facingMode: (front? "user" : "environment") } };
+      navigator.getUserMedia(constraints,
         stream => {
           webcamElement.srcObject = stream;
           webcamElement.addEventListener('loadeddata',  () => resolve(), false);
