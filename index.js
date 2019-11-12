@@ -14,8 +14,7 @@ async function setupWebcam() {
       var front = false;
       const constraints = window.constraints = {
                                                 audio: false,
-                                                video: true,
-                                                facingMode: {exact: 'user'}
+                                                video: true
                                               };
       navigator.mediaDevices.getUserMedia(constraints,
         stream => {
