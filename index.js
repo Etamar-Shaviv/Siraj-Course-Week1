@@ -13,7 +13,7 @@ async function setupWebcam() {
     {
       var front = false;
       var constraints = { video: { facingMode: (front? "user" : "environment") } };
-      navigator.mediaDevices.getUserMedia({video: true,{facingMode: {exact: 'environment'}}},
+      navigator.mediaDevices.getUserMedia({video: true,{facingMode: {exact: 'user'}}},
         stream => {
           webcamElement.srcObject = stream;
           webcamElement.addEventListener('loadeddata',  () => resolve(), false);
